@@ -1,0 +1,1425 @@
+:root {
+  --bleu-clair: #62b3d1;
+  --indigo: #3d35b3;
+  --degrade: linear-gradient(135deg, #62b3d1, #3d35b3);
+  --fond: #000000;
+  --texte: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--fond);
+  color: var(--texte);
+  padding-top: 90px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- En-tête fixe ---------- */
+.entete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(10, 10, 15, 0.95);
+  border-bottom: 2px solid var(--indigo);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px;
+  display: block;
+}
+
+/* ---------- Menu ---------- */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  color: var(--texte);
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.menu a:hover {
+  background: var(--degrade);
+}
+
+.menu .bouton-adhesion {
+  background: var(--degrade);
+  font-weight: bold;
+}
+
+.menu .bouton-adhesion:hover {
+  filter: brightness(1.2);
+}
+
+/* ---------- Sous-titre au survol ---------- */
+.sous-titre {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
+  background-color: var(--bleu-clair);
+  color: var(--fond);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.menu li:hover .sous-titre {
+  opacity: 1;
+}
+
+/* ---------- Vidéo plein écran ---------- */
+main {
+  flex: 1;
+}
+
+.video-fond {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.video-fond video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000000;
+}
+
+/* ---------- Bouton son ---------- */
+.bouton-son {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: var(--degrade);
+  color: var(--texte);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 10;
+}
+
+.bouton-son:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- Texte d'accueil ---------- */
+.accueil {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.accueil h1 {
+  font-size: clamp(1.2rem, 2.6vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 25px;
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.accueil h1 { text-wrap: balance; }
+
+@media (min-width: 1001px) {
+  .accueil h1 { white-space: nowrap; }
+}
+
+.cta {
+  display: inline-block;
+  background: var(--degrade);
+  color: var(--texte);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 32px;
+  border-radius: 30px;
+  transition: transform 0.3s;
+}
+
+.cta:hover {
+  transform: scale(1.06);
+}
+
+/* ============================================
+   PAGES INTÉRIEURES
+   ============================================ */
+
+/* ---------- Bandeau d'entrée ---------- */
+.hero-page {
+  text-align: center;
+  padding: 100px 30px 80px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(98, 179, 209, 0.18), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(61, 53, 179, 0.25), transparent 50%),
+    var(--fond);
+}
+
+.hero-accroche {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--bleu-clair);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.hero-page h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+.hero-texte {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #d8d8e0;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 80px 30px;
+}
+
+.section-fonce {
+  background-color: #11111a;
+  border-top: 1px solid #25253a;
+  border-bottom: 1px solid #25253a;
+}
+
+.conteneur {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-entete {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.section-etiquette {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--fond);
+  background: var(--degrade);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.section-entete h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--texte);
+}
+
+/* ---------- Cartes (Le déclic initial) ---------- */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.carte {
+  background-color: #14141f;
+  border: 1px solid #25253a;
+  border-radius: 16px;
+  padding: 30px 25px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.carte:hover {
+  transform: translateY(-6px);
+  border-color: var(--bleu-clair);
+  box-shadow: 0 10px 30px rgba(98, 179, 209, 0.15);
+}
+
+.carte-icone {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.carte h3 {
+  color: var(--bleu-clair);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.carte p {
+  color: #c8c8d4;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.citation-courte {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Frise (Notre histoire) ---------- */
+.frise {
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.frise::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: var(--degrade);
+  border-radius: 3px;
+}
+
+.frise-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.frise-item:last-child {
+  margin-bottom: 0;
+}
+
+.frise-point {
+  position: absolute;
+  left: -40px;
+  top: 4px;
+  width: 21px;
+  height: 21px;
+  background-color: var(--fond);
+  border: 4px solid var(--bleu-clair);
+  border-radius: 50%;
+}
+
+.frise-contenu h3 {
+  color: var(--texte);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.frise-contenu p {
+  color: #c8c8d4;
+  line-height: 1.7;
+}
+
+/* ---------- Trio (À propos de nous) ---------- */
+.trio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.trio-bloc {
+  background: linear-gradient(160deg, #14141f, #0e0e18);
+  border: 1px solid #25253a;
+  border-top: 4px solid var(--indigo);
+  border-radius: 16px;
+  padding: 35px 30px;
+}
+
+.trio-titre {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--bleu-clair);
+  margin-bottom: 15px;
+}
+
+.trio-bloc h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: var(--texte);
+}
+
+.trio-bloc p {
+  color: #c8c8d4;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* ---------- Page Le Labo : pôles ---------- */
+.poles {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.pole {
+  background: #12121c;
+  border: 1px solid #25253a;
+  border-top: 4px solid var(--indigo);
+  border-radius: 16px;
+  padding: 35px 30px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.pole:hover {
+  transform: translateY(-6px);
+  border-top-color: var(--bleu-clair);
+}
+
+.pole-icone {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: var(--degrade);
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.pole h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.pole-desc {
+  color: #c8c8d4;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.pole-liste {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pole-liste li {
+  background: rgba(98, 179, 209, 0.15);
+  color: var(--bleu-clair);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* ---------- Page Ça bouge ! ---------- */
+.actus {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.actu {
+  display: flex;
+  gap: 25px;
+  background-color: #14141f;
+  border: 1px solid #25253a;
+  border-left: 4px solid var(--bleu-clair);
+  border-radius: 14px;
+  padding: 25px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.actu:hover {
+  transform: translateY(-4px);
+  border-color: var(--indigo);
+}
+
+.actu-annulee {
+  border-left-color: #e05555;
+}
+
+.actu-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  height: 90px;
+  background: var(--degrade);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.actu-annulee .actu-date {
+  background: linear-gradient(135deg, #e05555, #8a2a2a);
+}
+
+.actu-jour {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.actu-mois {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.actu-contenu h2 {
+  font-size: 1.3rem;
+  margin: 8px 0 10px;
+}
+
+.actu-contenu p {
+  color: #d8d8e0;
+  line-height: 1.6;
+}
+
+.actu-badge {
+  display: inline-block;
+  background-color: var(--bleu-clair);
+  color: var(--fond);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.badge-annule {
+  background-color: #e05555;
+  color: #ffffff;
+}
+
+.actu-infos {
+  margin-top: 12px;
+  color: var(--bleu-clair) !important;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .actu {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Page Hors les murs ---------- */
+.evenement {
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  background: #14141f;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  align-items: flex-start;
+}
+
+.evenement:last-child {
+  margin-bottom: 0;
+}
+
+.evenement-image {
+  flex: 0 0 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 300px;
+  min-width: 0;
+  align-self: flex-start;
+  display: block;
+}
+
+.evenement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.evenement-contenu {
+  flex: 1;
+  min-width: 0;
+}
+
+.evenement-contenu h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: var(--texte);
+}
+
+.evenement-texte {
+  line-height: 1.8;
+  color: #d8d8e0;
+  margin: 15px 0;
+}
+
+.evenement-details {
+  background: rgba(98, 179, 209, 0.15);
+  border-left: 3px solid var(--bleu-clair);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+.evenement-details p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: var(--texte);
+}
+
+.stands-container {
+  margin-top: 30px;
+}
+
+.stands-container h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--bleu-clair);
+}
+
+/* Grille des stands */
+.stands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stand {
+  background: rgba(98, 179, 209, 0.1);
+  border: 1px solid #25253a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.stand:hover {
+  transform: translateY(-5px);
+  border-color: var(--bleu-clair);
+}
+
+.stand-icone {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.stand p {
+  color: #d8d8e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.stand small {
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .evenement {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .evenement-image {
+    height: 280px;
+  }
+
+  .stands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .evenement {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .evenement-image {
+    height: 220px;
+  }
+
+  .evenement-contenu h2 {
+    font-size: 1.5rem;
+  }
+
+  .stands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Page adhésion ---------- */
+.tarif {
+  max-width: 400px;
+  margin: 0 auto 40px;
+  text-align: center;
+  background: var(--degrade);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.tarif-label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.tarif-prix {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 8px 0;
+}
+
+.tarif-detail {
+  opacity: 0.9;
+}
+
+.info-box {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background-color: #14141f;
+  border-left: 4px solid var(--bleu-clair);
+  border-radius: 12px;
+  padding: 25px;
+  line-height: 1.6;
+}
+
+.info-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.info-box p + p {
+  margin-top: 12px;
+}
+
+.formulaire-embed {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.formulaire-embed iframe {
+  display: block;
+  border: none;
+  width: 100%;
+}
+
+/* ---------- Appel final ---------- */
+.appel {
+  text-align: center;
+  padding: 90px 30px;
+  background: var(--degrade);
+}
+
+.appel h2 {
+  max-width: 800px;
+  margin: 0 auto 35px;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.3;
+  color: var(--texte);
+}
+
+.appel .cta {
+  background: var(--fond);
+  border: 2px solid var(--texte);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .section {
+    padding: 55px 20px;
+  }
+
+  .section-entete {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+}
+
+/* ---------- Page Contact ---------- */
+.contact-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Carte Instagram */
+.insta-carte {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 35px 40px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 10px 40px rgba(220, 39, 67, 0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.insta-carte:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 50px rgba(220, 39, 67, 0.45);
+}
+
+.insta-icone {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+.insta-icone svg {
+  width: 44px;
+  height: 44px;
+}
+
+.insta-texte {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.insta-label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.insta-pseudo {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.insta-desc {
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-top: 4px;
+}
+
+.insta-fleche {
+  font-size: 2.2rem;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.insta-carte:hover .insta-fleche {
+  transform: translateX(8px);
+}
+
+/* Cartes mail / tel / adresse */
+.contact-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.contact-carte {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 35px 30px;
+  background: linear-gradient(160deg, #14141f, #0e0e18);
+  border: 1px solid #25253a;
+  border-top: 4px solid var(--indigo);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--texte);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-carte:hover {
+  transform: translateY(-6px);
+  border-top-color: var(--bleu-clair);
+  box-shadow: 0 10px 30px rgba(98, 179, 209, 0.2);
+}
+
+.contact-icone {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: var(--degrade);
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.contact-carte h2 {
+  font-size: 1.3rem;
+  color: var(--bleu-clair);
+}
+
+.contact-carte p {
+  color: #d8d8e0;
+  line-height: 1.8;
+}
+
+.contact-tel {
+  color: var(--texte);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.contact-tel:hover {
+  color: var(--bleu-clair);
+}
+
+.contact-lien {
+  margin-top: auto;
+  padding-top: 12px;
+  font-weight: bold;
+  color: var(--texte);
+  transition: color 0.3s;
+}
+
+.contact-carte:hover .contact-lien {
+  color: var(--bleu-clair);
+}
+
+@media (max-width: 700px) {
+  .insta-carte {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .insta-fleche {
+    display: none;
+  }
+}
+
+/* ---------- Section bénévoles ---------- */
+.benevoles {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(98, 179, 209, 0.15), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(61, 53, 179, 0.22), transparent 45%),
+    #11111a;
+}
+
+.benevoles-entete {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 55px;
+}
+
+.benevoles-badge {
+  display: inline-block;
+  background: var(--degrade);
+  color: var(--texte);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 8px 18px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.benevoles-entete h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.benevoles-entete p {
+  color: #d8d8e0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Cartes des missions */
+.benevoles-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.benevole-carte {
+  background: linear-gradient(160deg, #16162a, #0e0e18);
+  border: 1px solid #25253a;
+  border-radius: 18px;
+  padding: 32px 26px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.benevole-carte:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.benevole-carte:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.benevole-carte:hover {
+  transform: rotate(0deg) translateY(-8px);
+  border-color: var(--bleu-clair);
+  box-shadow: 0 14px 35px rgba(98, 179, 209, 0.25);
+}
+
+.benevole-emoji {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 2.2rem;
+  background: var(--degrade);
+  border-radius: 50%;
+}
+
+.benevole-carte h3 {
+  color: var(--bleu-clair);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.benevole-carte p {
+  color: #c8c8d4;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Bloc "Pourquoi nous rejoindre" */
+.benevoles-pourquoi {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  background: #14141f;
+  border: 1px solid #25253a;
+  border-left: 4px solid var(--bleu-clair);
+  border-radius: 14px;
+  padding: 30px 35px;
+}
+
+.benevoles-pourquoi h3 {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  color: var(--texte);
+}
+
+.benevoles-pourquoi ul {
+  list-style: none;
+}
+
+.benevoles-pourquoi li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+  color: #d8d8e0;
+  line-height: 1.5;
+}
+
+.benevoles-pourquoi li:last-child {
+  margin-bottom: 0;
+}
+
+.benevoles-pourquoi li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--degrade);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Appel à l'action */
+.benevoles-cta {
+  text-align: center;
+}
+
+.benevoles-cta .cta {
+  font-size: 1.15rem;
+  padding: 16px 42px;
+  animation: pulse-lab 2.2s ease-in-out infinite;
+}
+
+.benevoles-cta p {
+  margin-top: 18px;
+  color: #9a9ab0;
+  font-size: 0.95rem;
+}
+
+.benevoles-cta p a {
+  color: var(--texte);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.benevoles-cta p a:hover {
+  color: var(--bleu-clair);
+}
+
+@keyframes pulse-lab {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(98, 179, 209, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(98, 179, 209, 0);
+  }
+}
+
+@media (max-width: 700px) {
+  .benevole-carte:nth-child(odd),
+  .benevole-carte:nth-child(even) {
+    transform: none;
+  }
+
+  .benevoles-pourquoi {
+    padding: 25px 20px;
+  }
+}
+
+/* ---------- Section partenariat ---------- */
+.partenariat {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(98, 179, 209, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 85%, rgba(61, 53, 179, 0.18), transparent 50%),
+    #000000;
+}
+
+.partenariat-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.partenariat-carte {
+  background: linear-gradient(160deg, #14141f, #0e0e18);
+  border: 1px solid #25253a;
+  border-left: 4px solid var(--indigo);
+  border-radius: 16px;
+  padding: 30px 26px;
+  text-align: left;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.partenariat-carte:hover {
+  transform: translateY(-6px);
+  border-left-color: var(--bleu-clair);
+  box-shadow: 0 12px 35px rgba(98, 179, 209, 0.2);
+}
+
+.partenariat-icone {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.partenariat-carte h3 {
+  color: var(--bleu-clair);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.partenariat-carte p {
+  color: #c8c8d4;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ---------- Section parrainage & mécénat ---------- */
+.mecenat {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(61, 53, 179, 0.12), transparent 55%),
+    radial-gradient(circle at 20% 20%, rgba(98, 179, 209, 0.12), transparent 50%),
+    #11111a;
+}
+
+.mecenat-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-bottom: 45px;
+}
+
+.mecenat-carte {
+  position: relative;
+  background: linear-gradient(160deg, #16162a, #0e0e18);
+  border: 1px solid #25253a;
+  border-radius: 18px;
+  padding: 40px 26px 30px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.mecenat-carte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--degrade);
+}
+
+.mecenat-carte:hover {
+  transform: translateY(-8px);
+  border-color: var(--bleu-clair);
+  box-shadow: 0 14px 35px rgba(98, 179, 209, 0.25);
+}
+
+.mecenat-icone {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.mecenat-carte h3 {
+  color: var(--texte);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.mecenat-carte p {
+  color: #c8c8d4;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.mecenat-avantage {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  background: rgba(98, 179, 209, 0.12);
+  border: 1px dashed var(--bleu-clair);
+  border-radius: 14px;
+  padding: 20px 28px;
+  text-align: center;
+}
+
+.mecenat-avantage p {
+  color: #d8d8e0;
+  line-height: 1.6;
+}
+
+.mecenat-avantage strong {
+  color: var(--bleu-clair);
+}
+
+/* ---------- Responsive partenariat & mécénat ---------- */
+@media (max-width: 700px) {
+  .partenariat-carte,
+  .mecenat-carte {
+    padding: 25px 20px;
+  }
+
+  .mecenat-avantage {
+    padding: 18px 20px;
+  }
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+  text-align: center;
+  padding: 25px 20px;
+  border-top: 1px solid #25253a;
+  color: #9a9ab0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+/* ============================================
+   MENU MOBILE (déroulant)
+   ============================================ */
+.burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--degrade);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: var(--texte);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.burger.ouvert span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger.ouvert span:nth-child(2) { opacity: 0; }
+.burger.ouvert span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 1000px) {
+  .entete { padding: 0 16px; }
+  .logo img { height: 52px; }
+
+  .burger { display: flex; }
+
+  .entete nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    background-color: rgba(10, 10, 15, 0.98);
+    border-bottom: 2px solid var(--indigo);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+  }
+
+  .entete nav.ouvert {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px 20px;
+  }
+
+  .menu a {
+    padding: 14px 16px;
+    font-size: 1.05rem;
+  }
+
+  .menu .bouton-adhesion {
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* Le sous-titre devient visible sous chaque lien (pas de survol sur tactile) */
+  .sous-titre {
+    position: static;
+    transform: none;
+    margin: 0 0 0 16px;
+    padding: 0;
+    background: none;
+    color: var(--bleu-clair);
+    font-size: 0.8rem;
+    opacity: 0.85;
+    pointer-events: none;
+    display: block;
+    transition: none;
+  }
+
+  .menu li:hover .sous-titre { opacity: 0.85; }
+  .menu li { padding-bottom: 4px; }
+  .menu li:last-child .sous-titre { display: none; }
+}
+
+@media (max-width: 600px) {
+  .formulaire-embed iframe { height: 2400px; }
+  .hero-page { padding: 70px 20px 55px; }
+  .bouton-son { bottom: 14px; right: 14px; }
+}
+
+/* Numéros de téléphone l'un en dessous de l'autre sur mobile */
+@media (max-width: 700px) {
+  .benevoles-cta p a[href^="tel:"] {
+    display: block;
+    margin-top: 6px;
+    font-size: 1.1rem;
+  }
+  .benevoles-cta .sep { display: none; }
+}
+
+/* Bouton de don dans le pied de page */
+.pied .cta-don {
+  padding: 12px 30px;
+  margin-bottom: 16px;
+  color: var(--texte);
+}
